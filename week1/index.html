@@ -1,25 +1,132 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-    <title>Your title goes here</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap">
+
     <style>
-        /* You can put any styles here */
+        body {
+            display: flex;
+            flex-direction: row;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto; 
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgb(254, 255, 216);
+            background: linear-gradient(90deg, rgba(254, 255, 216, 1) 0%, rgba(236, 237, 214, 1) 35%, rgb(249, 249, 249) 72%, rgba(255, 252, 200, 1) 100%);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        section {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none solid #ccc;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 36px; 
+            margin-bottom: 5px; 
+        }
+
+        h3 {
+            font-size: 24px; 
+        }
+
+        .season-container {
+            display: flex;
+        }
+
+        season {
+            font-size: 60px; 
+            cursor: pointer; 
+            text-decoration: none;
+            color: #333; 
+            margin: 0 10px; 
+        }
+
+        back {
+            font-size: 30px; 
+            cursor: pointer; 
+            text-decoration: none;
+            color: #333; 
+            margin: 0 10px; 
+        }
+
+        section:nth-child(even) {
+            background-color: transparent; 
+        }
+
     </style>
 </head>
 
 <body>
 
-    <p>
-        Your one page, mostly text website will go here!
-    </p>
-    <p>
-        <a href="../index.html">Return</a>
-    </p>
+    <div class="container">
+        <section id="first-section">
+            <h1>Timeless Poetic Translation</h1>
+            <h3>Songs of Wonder and Melancholy</h3>
+            <div class="season-container">
+                <a href="#spring-section"><season>🀦</season></a>
+                <a href="#summer-section"><season>🀧</season></a>
+                <a href="#fall-section"><season>🀨</season></a>
+                <a href="#winter-section"><season>🀩</season></a>
+            </div>
+            <p>These are curated timeless Chinese poems by my father, which he sent me over via email time by time by time</p>
+            <p>All seasons</p>
+        </section>
 
-</body>
+        <section id="spring-section">
+            <h1>✿</h1>
+            <p>春暁 <br>Spring Dawn <br> 猛浩然<br> Meng Haoran</p>
+            <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少</p>
+            <p>Come spring, the rays of dawn no longer wake<br> I hear the song the birds surrounding make<br>Then last night's tempest suddenly recall<br>And wonder whether fell the flowers all</p>
+            <a href="#" class="back">↖︎</a>
+        </section>
 
-</html>
+        <section id="summer-section">
+            <h1>☄</h1>
+            <p>夏意<br>Summer Mood<br> 蘇舜欽<br> Su Shunqin</p>
+            <p>別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声</p>
+            <p>On mat bamboo reclining deep within a yard serene<br> The sun ascends to noon, the ground awash in pools of shade<br>My dream dispelled with warbling by a nightingale unseen</p>
+            <a href="#" class="back">↖︎</a>
+        </section>
+
+        <section id="fall-section">
+            <h1>❧</h1>
+            <p>山下残夏偶作<br>Impromptu Poem on Late Summer Heat in the Hills<br>李山甫<br> Li Shanfu</p>
+            <p>等閒三伏後<br>独臥此高丘<br>林風爽帶秋<br>声名何要出<br>吟詠亦堪休<br>自許紅塵外<br>雲溪好漱流</p>
+            <p>I live in ease once past the dog-star days<br>These wooded heights alone inhabiting<br>Though ling'ring heat be hotter than a blaze<br>The forest winds a breath autumnal bring<br>What need to leave and seek for fame inane?<br>To ever odes and verse compose and sing?<br>Apart I stand from all the dirt mundane<br>Content my mouth to cleanse at mountain spring</p>
+                <a href="#" class="back">↖︎</a>
+            </section>
+
+        <section id="winter-section">
+            <h1>☃︎</h1>
+            <p>哭姑<br>Mourning my Mother-in-Law<br>廖雲錦<br>Liao Yunjin</p>
+            <p>禁寒惜暖十余春<br>往事回頭倍愴神<br>幾度登楼親視膳<br>掲開幃幕已無人</p>
+            <p>I kept out cold and kept in warmth for winters more than ten<br>It multiplies my sorrow to recall the days back when<br>How many times with tray of food in hand I climbed the</p>
+                <a href="#" class="back">↖︎</a>
+            </section>
