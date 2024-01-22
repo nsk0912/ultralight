@@ -34,6 +34,7 @@
         .container {
             display: flex;
             flex-direction: row;
+            width: 400%; /* Adjust based on the number of sections */
         }
 
         section {
@@ -85,6 +86,10 @@
             section {
                 min-height: auto; /* Adjust as needed */
             }
+
+            .container {
+                width: 100%; /* Adjust for responsiveness on small screens */
+            }
         }
     </style>
 </head>
@@ -92,7 +97,50 @@
 <body>
 
     <div class="container">
-        <!-- Your sections go here as before -->
+        <section id="first-section">
+            <h1>Timeless Poetic Translation</h1>
+            <h3>Songs of Wonder and Melancholy</h3>
+            <div class="season-container">
+                <a href="#spring-section"><season>🀦</season></a>
+                <a href="#summer-section"><season>🀧</season></a>
+                <a href="#fall-section"><season>🀨</season></a>
+                <a href="#winter-section"><season>🀩</season></a>
+            </div>
+            <p>These are curated timeless Chinese poems by my father, which he sent me over via email time by time by time</p>
+            <p>All seasons</p>
+        </section>
+
+        <section id="spring-section">
+            <h1>✿</h1>
+            <p>春暁 <br>Spring Dawn <br> 猛浩然<br> Meng Haoran</p>
+            <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少</p>
+            <p>Come spring, the rays of dawn no longer wake<br> I hear the song the birds surrounding make<br>Then last night's tempest suddenly recall<br>And wonder whether fell the flowers all</p>
+            <a href="#" class="back">↖︎</a>
+        </section>
+
+        <section id="summer-section">
+            <h1>☄</h1>
+            <p>夏意<br>Summer Mood<br> 蘇舜欽<br> Su Shunqin</p>
+            <p>別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声</p>
+            <p>On mat bamboo reclining deep within a yard serene<br> The sun ascends to noon, the ground awash in pools of shade<br>My dream dispelled with warbling by a nightingale unseen</p>
+            <a href="#" class="back">↖︎</a>
+        </section>
+
+        <section id="fall-section">
+            <h1>❧</h1>
+            <p>山下残夏偶作<br>Impromptu Poem on Late Summer Heat in the Hills<br>李山甫<br> Li Shanfu</p>
+            <p>等閒三伏後<br>独臥此高丘<br>林風爽帶秋<br>声名何要出<br>吟詠亦堪休<br>自許紅塵外<br>雲溪好漱流</p>
+            <p>I live in ease once past the dog-star days<br>These wooded heights alone inhabiting<br>Though ling'ring heat be hotter than a blaze<br>The forest winds a breath autumnal bring<br>What need to leave and seek for fame inane?<br>To ever odes and verse compose and sing?<br>Apart I stand from all the dirt mundane<br>Content my mouth to cleanse at mountain spring</p>
+                <a href="#" class="back">↖︎</a>
+            </section>
+
+        <section id="winter-section">
+            <h1>☃︎</h1>
+            <p>哭姑<br>Mourning my Mother-in-Law<br>廖雲錦<br>Liao Yunjin</p>
+            <p>禁寒惜暖十余春<br>往事回頭倍愴神<br>幾度登楼親視膳<br>掲開幃幕已無人</p>
+            <p>I kept out cold and kept in warmth for winters more than ten<br>It multiplies my sorrow to recall the days back when<br>How many times with tray of food in hand I climbed the</p>
+                <a href="#" class="back">↖︎</a>
+            </section>
     </div>
 
 </body>
