@@ -1,0 +1,27 @@
+{
+    "spring": {
+      "spring": "春暁\nSpring Dawn\n猛浩然\nMeng Haoran\n\n春眠不覚暁\n処処聞啼鳥\n夜来風雨声\n花落知多少",
+      "summer": "Your summer poem here",
+      "fall": "Your fall poem here",
+      "winter": "Your winter poem here"
+    },
+    "summer": {
+      "spring": "Your spring poem here",
+      "summer": "夏意\nSummer Mood\n蘇舜欽\nSu Shunqin\n\n別院深深夏箪清\n石榴開遍透簾明\n樹陰満地日当午\n夢覚流鶯時一声",
+      "fall": "Your fall poem here",
+      "winter": "Your winter poem here"
+    },
+    "fall": {
+      "spring": "Your spring poem here",
+      "summer": "Your summer poem here",
+      "fall": "山下残夏偶作\nImpromptu Poem on Late Summer Heat in the Hills\n李山甫\nLi Shanfu\n\n等閒三伏後\n独臥此高丘\n林風爽帶秋\n声名何要出\n吟詠亦堪休\n自許紅塵外\n雲溪好漱流",
+      "winter": "Your winter poem here"
+    },
+    "winter": {
+      "spring": "Your spring poem here",
+      "summer": "Your summer poem here",
+      "fall": "Your fall poem here",
+      "winter": "哭姑\nMourning my Mother-in-Law\n廖雲錦\nLiao Yunjin\n\n禁寒惜暖十余春\n往事回頭倍愴神\n幾度登楼親視膳\n掲開幃幕已無人"
+    }
+  }
+  

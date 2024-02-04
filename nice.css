@@ -1,0 +1,922 @@
+@charset "UTF-8";
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Fonts & Geneeral
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+@font-face {
+  font-family: "Magmatic VF";
+  src: url("../fonts/Magmatic-VF.woff2") format("woff2 supports variations"), url("../fonts/Magmatic-VF.woff2") format("woff2-variations");
+  font-stretch: 50% 150%;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OCC Arrow";
+  src: url("../fonts/OCCWebArrowsGX.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --wght: 400;
+  --wdth: 100;
+  --XHGT: 0;
+  --color-cyan: rgb(90, 210, 230);
+  --grey: rgb(50,50,50);
+  --color-active: rgb(240 25 35);
+  --bg: #fffcf8;
+  --bg-img: rgb(245 240 230);
+  --pad-small: 8px;
+  --pad: 16px;
+  --pad-large: 36px;
+  --height-container: calc(100vh - var(--pad)*5);
+  --size-col: 9vh;
+  --size-xxxl: 23vh;
+  --size-xxl: 17vh;
+  --size-xl: 11.5vh;
+  --size-l: 5.5vh;
+  --size-m: 3.9vh;
+  --size-base: 3vh;
+  --size-s: 2vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Magmatic VF", sans-serif;
+  background: var(--bg);
+  font-style: var(--size-base);
+  overflow-x: auto;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-active);
+}
+
+a:hover {
+  color: black;
+}
+
+.en, .sub-latin, a.link {
+  font-family: "Magmatic VF", sans-serif;
+  font-variation-settings: "wght" var(--wght), "wdth" var(--wdth), "XHGT" var(--XHGT);
+}
+
+.jp, .jp-menu, .jp p, .jp-menu p {
+  font-family: "Gothic MB101 Regular", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif;
+  font-feature-settings: "palt", "kern";
+}
+
+.jp-heavy, h1.vertical.jp, h1.vertical.jp-menu, .title .jp, .title .jp-menu {
+  font-family: "Gothic MB101 Heavy";
+  line-height: 1;
+}
+
+.jp-medium, .jp-horizontal .dateinfo time, .location.jp.vertical, .location.vertical.jp-menu {
+  font-family: "Gothic MB101 Medium";
+  line-height: 1;
+}
+
+.jp-bold, .jp.address.vertical .jplarge, .address.vertical.jp-menu .jplarge, .colophon.jp h4, .colophon.jp-menu h4 {
+  font-family: "Gothic MB101 Bold";
+  line-height: 1;
+}
+
+.jp-light, .jp-horizontal h2.jp, .jp-horizontal h2.jp-menu, .subtitle.jp, .subtitle.jp-menu {
+  font-family: "Gothic MB101 Light";
+  line-height: 1;
+}
+
+.jp.vertical, .vertical.jp-menu {
+  writing-mode: vertical-rl;
+  font-feature-settings: "valt" 1, "vpal" 1, "vkrn" 1;
+}
+
+h1, h2, h3, h4, h5, h6, time, div, section, strong, p, footer, figcaption {
+  font-weight: normal;
+  font-family: "Magmatic VF";
+  font-variation-settings: "wght" var(--wght), "wdth" var(--wdth), "XHGT" var(--XHGT);
+}
+
+strong {
+  font-weight: normal;
+}
+
+main {
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  display: grid;
+  grid-template-columns: repeat(268, var(--size-col));
+  height: var(--height-container);
+  margin: var(--pad) 0;
+  gap: var(--pad);
+}
+
+section, .img-gallery {
+  scroll-snap-align: center;
+}
+
+section#process, section#process p, section#process-jp, section#access {
+  scroll-snap-align: start;
+}
+
+section#access-jp {
+  scroll-snap-align: end;
+}
+
+footer {
+  --wght: 330;
+  --XHGT: 100;
+  position: fixed;
+  height: 50px;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  letter-spacing: 0.05em;
+}
+footer .main-menu {
+  display: flex;
+  justify-content: space-between;
+}
+footer nav {
+  width: 100%;
+}
+footer nav ul {
+  width: 100%;
+  display: flex;
+}
+footer li {
+  display: block;
+  list-style-type: none;
+  margin: 0 var(--pad-small);
+}
+footer a {
+  color: black;
+}
+footer a:hover {
+  color: var(--color-active);
+}
+
+.jp-nav ul {
+  justify-content: end;
+}
+
+section {
+  position: relative;
+  flex-shrink: 0;
+  padding-left: var(--pad-large);
+  height: var(--height-container);
+}
+
+figure {
+  margin-top: 0;
+  position: relative;
+  height: var(--height-container);
+}
+
+figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+img {
+  width: 100%;
+}
+
+figcaption {
+  --wght: 400;
+  --wdth: 110;
+  --XHGT: 100;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+English Side
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+.cover {
+  padding-left: var(--pad);
+  grid-column: span 5;
+}
+
+.title.en, .title.sub-latin, a.title.link, .city.en, .city.sub-latin, a.city.link {
+  --wght: 600;
+  --wdth: 40;
+  line-height: 0.75;
+  font-size: var(--size-xxxl);
+  margin-top: 0.05em;
+}
+
+.title .jp, .title .jp-menu {
+  position: relative;
+  bottom: 1.1em;
+  font-size: var(--size-l);
+  writing-mode: horizontal-tb;
+}
+
+.subtitle.en, .subtitle.sub-latin, a.subtitle.link {
+  grid-column: span 4;
+  --wght: 130;
+  --wdth: 58;
+  line-height: 0.75;
+  font-size: var(--size-xxxl);
+}
+
+.subtitle.jp, .subtitle.jp-menu {
+  grid-column: span 2;
+  font-size: var(--size-xl);
+}
+
+.subtitle .shift {
+  line-height: 0.9;
+}
+
+.info {
+  grid-column: span 4;
+}
+.info time {
+  font-size: var(--size-l);
+}
+
+time {
+  display: block;
+  line-height: 1;
+  --wght: 310;
+  --wdth: 110;
+  --XHGT: 100;
+}
+
+h3.gallery {
+  --wght: 340;
+  --wdth: 70;
+  --XHGT: 100;
+  letter-spacing: 0;
+  font-size: var(--size-xl);
+}
+
+.no {
+  font-family: "Magmatic VF";
+  --wght: 330;
+  --wdth: 100;
+  --XHGT: 1;
+  font-variation-settings: "wght" var(--wght), "wdth" var(--wdth), "XHGT" var(--XHGT);
+}
+
+.location.jp.vertical, .location.vertical.jp-menu {
+  font-size: var(--size-m);
+  letter-spacing: 5px;
+  padding: 5px 10px;
+}
+.location.jp.vertical .no, .location.vertical.jp-menu .no {
+  --wght: 400;
+}
+
+.location.en, .location.sub-latin, a.location.link {
+  grid-column: span 4;
+  text-transform: uppercase;
+  font-size: var(--size-xxxl);
+  --wght: 600;
+  --wdth: 40;
+  line-height: 0.75;
+  margin-top: 0.05em;
+}
+
+.intro {
+  grid-column: span 8;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--pad);
+  height: var(--height-container);
+}
+.intro p {
+  grid-row: 2/span 3;
+  --wght: 310;
+  --wdth: 93;
+  font-size: var(--size-m);
+  letter-spacing: 0.01em;
+}
+.intro p strong {
+  --wght: 600;
+}
+
+.intro, .statement, .colophon, .divider {
+  padding: var(--pad-large);
+}
+
+.statement {
+  grid-column: span 14;
+  position: relative;
+}
+.statement h3 {
+  --wght: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
+.statement h3, .colophon h4 {
+  margin-top: 1em;
+}
+
+.text {
+  column-count: 2;
+  column-gap: calc(var(--pad) * 2);
+}
+
+.jpnumber {
+  text-combine-upright: all;
+}
+
+.jp.content.statement, .content.statement.jp-menu {
+  column-count: 1;
+  grid-column: span 22;
+  padding: var(--pad-large) var(--pad);
+  padding-right: var(--pad-large);
+}
+.jp.content.statement p, .content.statement.jp-menu p {
+  font-family: "Reimin Y20 R JIS2004 AP";
+  font-size: calc(var(--size-s) * 1.1);
+  line-height: 1.8;
+  text-indent: 1.05em;
+  max-height: 30em;
+  letter-spacing: 0.06em;
+  font-feature-settings: "vpal" 0, "valt" 1, "vkrn" 1;
+}
+
+.en.content, .content.sub-latin, a.content.link {
+  --wght: 300;
+  --wdth: 105;
+  font-size: var(--size-s);
+}
+.en.content p, .content.sub-latin p, a.content.link p {
+  font-family: "FB Ibis RE Regular";
+  text-indent: 2em;
+  font-weight: normal;
+  line-height: 1.4;
+}
+.en.content em, .content.sub-latin em, a.content.link em {
+  font-style: normal;
+  font-family: "FB Ibis RE Italic";
+}
+
+p.first {
+  text-indent: 0 !important;
+}
+
+.quote {
+  text-indent: 0;
+  position: absolute;
+  mix-blend-mode: multiply;
+  color: var(--color-cyan);
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Image formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+.img-layers {
+  grid-column: span 24;
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+}
+
+.print-item {
+  width: 100%;
+  mix-blend-mode: multiply;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  left: var(--size-col);
+}
+
+.img-features {
+  grid-column: span 36;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--pad-large);
+  grid-template-rows: repeat(5, 1fr);
+}
+.img-features .img-gallery {
+  scroll-snap-align: center;
+  grid-row: 2/span 3;
+}
+.img-features img {
+  background: var(--bg-img);
+}
+
+.img-feature-large {
+  grid-column: span 8;
+}
+.img-feature-large div {
+  height: 100%;
+}
+
+.crow-gallery {
+  align-items: flex-end;
+  display: flex;
+}
+.crow-gallery .img-gallery {
+  height: auto;
+}
+
+.crow-item {
+  mix-blend-mode: multiply;
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Center Colophon
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+.colophon {
+  grid-column: span 6;
+}
+.colophon.en, .colophon.sub-latin, a.colophon.link {
+  line-height: 1.4;
+  font-size: var(--size-s);
+  letter-spacing: 0.05em;
+  --wdth: 100;
+  --wght: 340;
+  --XHGT: 100;
+}
+.colophon.en h4, .colophon.sub-latin h4, a.colophon.link h4 {
+  --wght: 600;
+}
+.colophon.en p, .colophon.sub-latin p, a.colophon.link p {
+  margin-bottom: 22.4px;
+  letter-spacing: 0.05em;
+}
+.colophon.jp, .colophon.jp-menu {
+  writing-mode: horizontal-tb;
+}
+.colophon.jp p, .colophon.jp-menu p {
+  font-size: calc(var(--size-s) * 0.91);
+  line-height: calc(var(--size-s) * 1.4);
+  margin-bottom: 22.4px;
+  letter-spacing: 0.08em;
+}
+.colophon.jp h4, .colophon.jp-menu h4 {
+  line-height: 1.5;
+}
+.colophon a.link {
+  color: black;
+  font-size: calc(0.9 * var(--size-s));
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Middle Navigation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+a.link {
+  border-bottom: 2px solid black;
+  position: relative;
+  display: inline-block;
+  font-variation-settings: "wght" 450, "wdth" 110, "XHGT" 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+a.link:hover {
+  border-bottom-color: transparent;
+}
+
+.jp-menu {
+  writing-mode: horizontal-tb;
+  text-transform: none;
+}
+
+.divider {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+}
+.divider .menu {
+  padding: 0 2rem;
+}
+.divider .menu a {
+  border: 0;
+}
+.divider .links, .divider .nav-links {
+  text-align: center;
+}
+.divider .nav-links {
+  margin-top: var(--pad-large);
+}
+.divider .navlink {
+  position: relative;
+  display: inline-block;
+}
+.divider .jp-menu::after {
+  transition: font-variation-settings 150ms linear;
+  position: absolute;
+  top: 3px;
+  content: "→";
+  font-family: "OCC Arrow";
+  font-variation-settings: "wdth" 0;
+}
+.divider .en-menu::before {
+  transition: font-variation-settings 150ms linear;
+  position: absolute;
+  right: 105%;
+  content: "←";
+  font-family: "OCC Arrow";
+  font-variation-settings: "wdth" 0;
+}
+.divider .en-menu:hover::after, .divider .jp-menu:hover::before {
+  font-variation-settings: "wdth" 1000;
+}
+
+.map {
+  max-width: 80vw;
+  width: 400px;
+  height: 300px;
+  margin: auto;
+}
+.map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+figure.crow-footer {
+  height: 100%;
+  display: flex;
+  width: 500px;
+  max-width: 80vw;
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Japanese Side
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+*/
+.vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-feature-settings: "valt" 1;
+}
+
+.jp.intro, .intro.jp-menu {
+  grid-column: span 8;
+}
+.jp.intro p, .intro.jp-menu p {
+  text-indent: -0.6em;
+  line-height: 1.8;
+  font-size: var(--size-base);
+  letter-spacing: 0.05em;
+}
+.jp.intro .sub-latin, .intro.jp-menu .sub-latin {
+  --wght: 330;
+  --wdth: 110;
+  letter-spacing: 0;
+}
+
+h1.vertical.jp, h1.vertical.jp-menu {
+  font-size: var(--size-xl);
+  position: relative;
+}
+
+h2.en.vertical, h2.vertical.sub-latin {
+  grid-column: span 2;
+  font-size: var(--size-xxl);
+  --wght: 800;
+  --wdth: 50;
+  line-height: 1.3;
+  margin-top: 0.03em;
+}
+
+h3.jp, h3.jp-menu {
+  font-size: var(--size-m);
+  font-family: "Gothic MB101 Heavy";
+  position: relative;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.jp.address.vertical, .address.vertical.jp-menu {
+  grid-column: span 3;
+  font-weight: normal;
+  font-size: calc(var(--size-l) * 1.5);
+  font-family: "Gothic MB101 Heavy";
+  line-height: 1;
+}
+.jp.address.vertical .no, .address.vertical.jp-menu .no {
+  font-feature-settings: "tnum" 1;
+  --wght: 730;
+  --wdth: 70;
+}
+.jp.address.vertical .jplarge, .address.vertical.jp-menu .jplarge {
+  line-height: 1.2;
+}
+
+.jp-horizontal {
+  grid-column: span 8;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.jp-horizontal h2.jp, .jp-horizontal h2.jp-menu {
+  writing-mode: horizontal-tb;
+  font-size: var(--size-xxl);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-align: left;
+}
+.jp-horizontal h2.jp span.en, .jp-horizontal h2.jp span.sub-latin, .jp-horizontal h2.jp-menu span.en, .jp-horizontal h2.jp-menu span.sub-latin {
+  font-size: var(--size-m);
+  letter-spacing: 0;
+  line-height: 1.1;
+  display: block;
+  float: left;
+  margin-top: 2.2em;
+  width: 49%;
+}
+.jp-horizontal .info {
+  text-align: right;
+}
+.jp-horizontal .dateinfo {
+  text-align: right;
+  margin-bottom: var(--pad);
+  margin-right: var(--pad);
+}
+.jp-horizontal .dateinfo time {
+  font-size: var(--size-l);
+  --wght: 260;
+  --wdth: 100;
+}
+.jp-horizontal .dateinfo .no {
+  font-size: 1.2em;
+}
+.jp-horizontal h4 {
+  font-size: var(--size-l);
+}
+.jp-horizontal h1 {
+  font-size: var(--size-xl);
+  --wght: 280;
+  --wdth: 70;
+  text-transform: uppercase;
+  line-height: 1;
+  position: relative;
+}
+
+.location-block {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--size-m);
+  line-height: 1.2;
+}
+.location-block .en.gallery, .location-block .gallery.sub-latin, .location-block a.gallery.link {
+  font-size: var(--size-l);
+  line-height: 1;
+  --wght: 370;
+  --wdth: 83;
+  --XGHT: 100;
+  letter-spacing: 0;
+  text-align: right;
+  margin-right: 0.1em;
+}
+
+.active {
+  color: var(--color-active);
+}
+
+#jp-font-loader {
+  display: none;
+}
+
+.colophon.jp .no, .colophon.jp-menu .no {
+  font-size: 1.1em;
+}
+
+.sub-latin {
+  --XHGT: 100;
+  --wght: 360;
+  font-size: 1.1em;
+}
+
+h4 .sub-latin {
+  --wght: 660;
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Scroll Navigation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+#scroller {
+  color: var(--color-active);
+  font-size: var(--size-l);
+}
+
+[data-position=home-en] #nav-left {
+  display: none;
+}
+
+[data-position=home-jp] #nav-right {
+  display: none;
+}
+
+.scroll-arrow {
+  transition: font-variation-settings 200ms ease-in-out;
+  --wdth: 0;
+  font-family: "OCC Arrow";
+  font-variation-settings: "wdth" var(--wdth);
+  position: fixed;
+  top: 45%;
+}
+.scroll-arrow:hover {
+  cursor: pointer;
+  --wdth: 1000;
+}
+
+#nav-right {
+  right: 0;
+}
+
+#nav-left {
+  left: 0;
+}
+
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Drawing Sketch
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+/*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Responsive Styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+#mobile-nav {
+  display: none;
+  z-index: 10;
+  cursor: pointer;
+  width: 100%;
+  padding: var(--pad-small);
+}
+#mobile-nav .line {
+  margin: auto;
+  background: black;
+  width: 40px;
+  margin: 5px auto;
+  height: 3px;
+}
+
+footer {
+  transition: transform 100ms ease-in-out;
+}
+
+@media screen and (max-width: 1000px) {
+  #mobile-nav {
+    display: block;
+  }
+  :root {
+    --height-container: calc(100vh - var(--pad)*3);
+  }
+  footer {
+    bottom: 10px;
+    transform: translateY(calc(100% - 25px));
+    border-top: 1px solid black;
+    height: 250px;
+    background: var(--bg);
+  }
+  footer[data-open] {
+    transform: translateY(0);
+  }
+  footer nav {
+    position: relative;
+  }
+  footer nav ul {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    flex-direction: column;
+  }
+  footer .en-nav ul {
+    line-height: 2;
+  }
+  footer .jp-nav ul {
+    line-height: 2;
+    font-size: 0.95em;
+    flex-direction: column-reverse;
+  }
+  footer .jp-nav ul li {
+    text-align: right;
+  }
+}
+@media screen and (max-width: 700px) {
+  :root {
+    --height-container: 650px;
+    --pad-large: 30px;
+    --size-xxxl: 160px;
+    --size-xxl: 74px;
+    --size-xl: 80px;
+    --size-l: 36px;
+    --size-m: 26px;
+    --size-base: 18px;
+    --size-s: 15px;
+  }
+  /* Hiding scrollbar for Chrome, Safari and Opera */
+  main::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hiding scrollbar for IE, Edge and Firefox */
+  main {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  .hide {
+    display: none;
+  }
+  #scroller {
+    display: none;
+  }
+  .intro, .statement, .colophon, .divider, figure {
+    width: auto;
+    padding: 0 var(--pad);
+    margin: 0;
+  }
+  .intro {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+  }
+  .img-gallery, .img-feature-large div {
+    width: 80vw;
+  }
+  .img-features {
+    display: flex;
+    align-items: center;
+  }
+  .img-features img {
+    height: auto;
+  }
+  .img-layers .print-item {
+    width: 90vw;
+  }
+  .img-layers .print-item:first-child {
+    left: 0px;
+  }
+  p {
+    max-width: 90vw;
+  }
+  .en.content.statement .text, a.content.statement.link .text, .content.statement.sub-latin .text {
+    column-count: 3;
+    column-gap: var(--pad);
+  }
+  .jp.content.statement p, .content.statement.jp-menu p {
+    max-height: 36em;
+  }
+  .jp-horizontal .info {
+    width: 90vw;
+  }
+  .jp-horizontal .dateinfo time {
+    font-size: var(--size-m);
+  }
+  .jp-horizontal h2.jp span.en, .jp-horizontal h2.jp-menu span.en, .jp-horizontal h2.jp span.sub-latin, .jp-horizontal h2.jp-menu span.sub-latin {
+    width: 200px;
+    margin-top: 0.75em;
+  }
+  h2.en.vertical, h2.vertical.sub-latin {
+    line-height: 1;
+  }
+  main {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+@media screen and (max-width: 380px) {
+  :root {
+    --height-container: 600px;
+  }
+}
+@media screen and (max-width: 360px) {
+  :root {
+    --height-container: 90vh;
+    --size-s: 13px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

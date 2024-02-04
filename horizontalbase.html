@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Website</title>
+    <script src="script2.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Zen Kurenaido' rel='stylesheet'>
+    <style>
+  /* Resetting default styles for better consistency */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.season-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        season {
+            font-size: 60px;
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+
+.container {
+    white-space: nowrap;
+    font-size: 20px;
+    overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+
+.section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.section::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(252, 255, 230, 1) 0%, rgba(242, 255, 216, 1) 45%, rgba(232, 240, 202, 1) 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    color: grey;
+    padding: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.menu {
+    margin-top: 50px; /* Push the menu to the bottom */
+    display: flex;
+    gap: 20px;
+    z-index: 3;
+}
+
+.menu a {
+    color: grey;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto; /* Center the image within its container */
+    width: 80%; /* Set a default width for the image */
+    max-width: 800px; /* Set a maximum width for the image */
+}
+
+h1, p {
+    white-space: normal;
+}
+
+h2 {
+    white-space: normal;
+}
+
+h3 {
+    font-size: 16px;
+    font-style: 'Zen Kurenaido';
+}
+
+.poem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-style: italic;
+    font-family: 'Zen Kurenaido';
+}
+
+.poem p {
+    width: 100%; /* Full width for paragraphs */
+    margin-bottom: 10px; /* Add margin between the paragraphs */
+}
+
+/* Add this new tooltip style for Section 3 */
+.tooltip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tooltip-section3 {
+    display: inline-block;
+    position: relative;
+    font-size: 20px; /* Adjust the font size as needed */
+    margin: 0 10px 20px 10px; /* Add margin between tooltips */
+    font-weight: 800;
+}
+.tooltip-section3 .custom-tooltip {
+    min-width: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    color: #444444;
+    background-color: #EEEEEE;
+    font-weight: normal;
+    font-size: 13px;
+    border-radius: 8px;
+    z-index: 99999999;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.8s;
+    text-align: center; /* Center text horizontally within the tooltip */
+    font-family: 'Zen Kurenaido' ;
+}
+
+.tooltip-section3:hover .custom-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-section3 .custom-tooltip i {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: -12px;
+    width: 24px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.tooltip-section3 .custom-tooltip i::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: #EEEEEE;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Add this CSS for Section 3 */
+.section3-content {
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: auto; /* or overflow: hidden; */
+    max-height: 400px; /* Set a value that fits your design */
+}
+
+.section3-content h3 {
+    white-space: normal;
+}
+
+/* Update the existing CSS for Section 3 */
+.section3 {
+    flex: 0 0 100vw;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+    .section3-content {
+        max-width: 90%;
+    }
+
+    .container {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-style: 'Zen Kurenaido';
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .poem-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .poem-content p {
+        font-size: 14px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .back-to-top {
+        bottom: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .season-container {
+        margin-top: 10px;
+    }
+
+    season {
+        font-size: 40px;
+        margin: 0 5px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .hr-container {
+        display: none; /* Hide the hr initially */
+    }
+
+    @media only screen and (max-width: 768px) {
+        .poem-container {
+            flex-direction: column; /* Stack content vertically on smaller screens */
+        }
+
+        .hr-container {
+            display: block; /* Show the hr on smaller screens */
+        }
+    }
+}
+
+.section3 .tooltip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section3 .tooltip-section3 {
+    flex: 0 0 48%; /* Adjust the width of each tooltip as needed */
+    margin: 0 1%; /* Adjust the margin between tooltips */
+    box-sizing: border-box;
+    overflow: hidden; /* Ensure tooltips don't overflow */
+}
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section" id="section1">
+            <div class="content">
+                <h1>Timeless Poetic Translation</h1>
+                <p>Songs of Wonder and Melancholy <br> Poems translated by my father in each season </p>
+                
+                <season>🀦 🀧 🀨 🀩</season>
+
+                <!-- Navigation menu -->
+                <div class="menu">
+                    <a href="#section2">◌ Access your season</a>
+                    <a href="#section3">◌ Index poetry machine</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="content">
+                <!-- Separate class for the poem part -->
+                <div class="poem-container" id="spring-poem">
+                    <div class="poem-content">
+                        <h2>You're currently logged into the 🌷 season</h2><h3>Here is a tailored timeless poem for you</h3>
+                        <hr>
+                        <div class="poem">
+                            <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少<br></p>
+                            <p>Come spring, the rays of dawn no longer wake<br>I hear the song the birds surrounding make<br>Then last night's tempest suddenly recall<br>And wonder whether fell the flowers all</p>
+                        </div>
+                        <p class="tooltip-section3">
+                            ✍︎
+                            <span class="custom-tooltip">✏️ Spring Dawn<br>👤 Meng Haoran (Tang, 679 - 740)<br>As if composed while the poet was still in bed, half-asleep. The whole of it takes place inside his head, on the pillow. His mind transitions abruptly from the pleasure of bird song on a spring morning to worry about the effects of an overnight storm on his garden.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="spring-poem">
+                    <div class="poem-content">
+                        <h2>You're currently logged into the ☀️ season</h2><h3>Here is a tailored timeless poem for you</h3>
+                        <hr>
+                        <div class="poem">
+                            <p>別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声</p>
+                            <p>On mat bamboo reclining deep within a yard serene<br>The pomegranate blossoms bright behind the hanging screen<br>The sun ascends to noon, the ground awash in pools of shade<br>My dream dispelled with warbling by a nightingale unseen</p>
+                        </div>
+                        <p class="tooltip-section3">
+                            ✍︎
+                            <span class="custom-tooltip">✏️ Summer Mood<br>👤  Su Shunqin (Northern Song, 1008 - 1048)<br>With its attention to the immediate surroundings and sensations, the poem is completely Song in spirit. In the last verse, it is uncertain whether the nightingale was dreamt or actually in the yard.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="spring-poem">
+                    <div class="poem-content">
+                        <h2>You're currently logged into the 🍂 season</h2><h3>Here is a tailored timeless poem for you</h3>
+                        <hr>
+                        <div class="poem">
+                            <p>等閒三伏後<br>独臥此高丘<br>林風爽帶秋<br>声名何要出<br>吟詠亦堪休<br>自許紅塵外<br>雲溪好漱流</p>
+                            <p>I live in ease once past the dog-star days<br>These wooded heights alone inhabiting<br>The forest winds a breath autumnal bring<br>What need to leave and seek for fame inane?<br>To ever odes and verse compose and sing?<br>Apart I stand from all the dirt mundane<br>Content my mouth to cleanse at mountain spring</p>
+                        </div>
+                        <p class="tooltip-section3">
+                            ✍︎
+                            <span class="custom-tooltip">✏️ Impromptu Poem on Late Summer Heat in the Hills<br>👤  Li Shanfu (Tang, active in the mid 9th century)<br>Defiant, even triumphant tone. The dates for the poet's birth and death are uncertain, and the collection of his poetry was not transmitted to posterity.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="winter-poem">
+                    <div class="poem-content">
+                        <h2>You're currently logged into the ❄️ season </h2>
+                        <h3>Here is a tailored timeless poem for you</h3>
+                        <hr>
+                        <div class="poem">
+                            <p>禁寒惜暖十余春<br>往事回頭倍愴神<br>幾度登楼親視膳<br>掲開幃幕已無人</p>
+                            <p>I kept out cold and kept in warmth for winters more than ten<br>It multiplies my sorrow to recall the days back when<br>How many times with tray of food in hand I climbed the stair!<br>And now to lift the curtain 'round the bed, and no one's there!</p>
+                        </div>
+                        <p class="tooltip-section3">
+                            ✍︎
+                            <span class="custom-tooltip">✏️ Mourning my Mother-in-Law <br>👤 Liao Yunjin (Qing, active 1821 - 1850) <br> The poetess was one of the eccentric Yuan Mei's pupils, over 30 of whom were women. According to one story, she and her mother-in-law lived with and supported each other after the early death of her husband</span>
+                        </p>
+                        <div><a href="#section1"> ↩︎ </a></div>
+                        
+                    
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section3">
+            <div class="content">
+                <h1>Index Poetry Machine</h1>
+        
+                <div class="tooltip-container">
+                    <p class="tooltip-section3">
+                        🌷 Spring Dawn 👤 Meng Haoran
+                        <span class="custom-tooltip">
+                            ✏️ 春暁 | Spring Dawn <br>
+                            👤 猛浩然 | Meng Haoran (Tang, 679 - 740)<br>
+                            〰️〰️〰️〰️〰️ <br>
+                            春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少<br>
+                            Come spring, the rays of dawn no longer wake<br>I hear the song the birds surrounding make<br>Then last night's tempest suddenly recall<br>And wonder whether fell the flowers all
+                        </span>
+                    </p>
+                    <p class="tooltip-section3">
+                        ⛱️ Summer Mood 👤 Su Shunqin
+                        <span class="custom-tooltip">
+                            ✏️ 夏意 | Summer Mood <br>
+                            👤 蘇舜欽 | Su Shunqin (Northern Song, 1008 - 1048)<br>
+                            〰️〰️〰️〰️〰️ <br>
+                            別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声<br>
+                            On mat bamboo reclining deep within a yard serene<br>The pomegranate blossoms bright behind the hanging screen<br>The sun ascends to noon, the ground awash in pools of shade<br>My dream dispelled with warbling by a nightingale unseen
+                        </span>
+                    </p>
+
+                    <p class="tooltip-section3">
+                        💭 Waking from a Nap on a Lazy Early Summer Day 👤 Yang Wanli
+                        <span class="custom-tooltip">
+                            ✏️ 閑居初夏午睡起 | Waking from a Nap on a Lazy Early Summer Day <br>
+                            👤 楊万里 | Yang Wanli (Southern Song, 1127 - 1206)
+                            <br>
+                            〰️〰️〰️〰️〰️ <br>
+                            梅子留酸軟歯牙<br>芭蕉分緑与窓紗<br>日長睡起無情思<br>閑看児童捉柳花<br>
+                            My teeth on edge from tartness that a bite of plum attends<br>The plantain frond a greenish tinge the silken curtain lends<br>From slumber on a sluggish day I wake in vacant mind<br>And idly watch the children catching fuzz the willow sends
+                        </span>
+                    </p>
+
+                    <p class="tooltip-section3">
+                        🍷 Offering Wine by Yu Buling
+                        <span class="custom-tooltip">
+                            ✏️ 勧酒 | Offering Wine <br>
+                            👤 于武陵 | Yu Buling (Tang, 810 - ?)
+                            <br>
+                            〰️〰️〰️〰️〰️ <br>
+                            勧君金屈巵<br>満酌不須辞<br>花発多風雨<br>人生足別離<br>
+                            The golden cup I offer thee, with wine<br>To brim filled up, a friend should not decline<br>A bloom, once bloomed, must many storms endure<br>And we to parting must ourselves resign
+                        </span>
+                    </p>
+
+                    <p class="tooltip-section3">
+                        ❄️ River Snow 👤 Liu Zongyuan
+                        <span class="custom-tooltip">
+                            ✏️ 江雪 | River Snow <br>
+                            👤 柳宗元 | Liu Zongyuan (Tang, 773 - 819)
+                            <br>
+                            〰️〰️〰️〰️〰️ <br>
+                            千山鳥飛絶<br>萬徑人蹤滅<br>孤舟簑笠翁<br>獨釣寒江雪<br>
+                            A thousand hills, and not a bird has flown<br>A myr'ad paths, their tracks all over-blown<br>Aboard a skiff, with coat and cap of straw<br>In cold and snow, an old man fishing, lone
+                        </span>
+                    </p>
+
+                    <p class="tooltip-section3">
+                         🌖 Yu Garden 👤 Shang Jinglan
+                        <span class="custom-tooltip">
+                            ✏️ 寓園 | Yu Garden<br>
+                            👤 商景蘭 | Shang Jinglan (Qing, 1605 - 1676)
+                            <br>
+                            〰️〰️〰️〰️〰️ <br>
+                            旧荒涼苑地<br>重来倍有情<br>満園梅綻白<br>両岸柳舒青<br>芳草叢叢発<br>飛泉処処鳴<br>晩鴉催日暮<br>還傍月光行<br>
+                            The garden old, although a sorry sight<br>Revisited, seems twice as much to mean<br>The precincts full of plum-tree blossoms white<br>On both the banks, the willow branches green<br>The fragrant flora left to wildly thrive<br>Cascading water ev'rywhere resounds<br>At eve caw crows for twilight to arrive<br>Then I, by moonlight guided, leave the grounds
+                        </span>
+                    </p>
+
+
+                    <p class="tooltip-section3">
+                       💧 The Parting - second of two poems 👤 Du Mu
+                       <span class="custom-tooltip">
+                           ✏️ 贈別二首其二 | The Parting - second of two poems<br>
+                           👤 杜牧 | Du Mu
+                           <br>
+                           〰️〰️〰️〰️〰️ <br>
+                           多情却似総無情<br>唯覚尊前笑不成<br>蝋燭有心還惜別<br>替人垂涙到天明<br>
+                           To feel so much you feel at end as if to feeling numb<br>We drink, and yet, our lips, I think, could not a smile become<br>The candle seems to have a heart and pity this farewell<br> Til dawn, on our behalf, shall dribble waxen tears therefrom<br>
+                       </span>
+                   </p>
+                   
+                   <p class="tooltip-section3">
+                    🍑 Failure to Meet a Friend on a Visit to See His Garden  👤 Ye Shaoweng
+
+                    <span class="custom-tooltip">
+                        ✏️ 遊園不值 | Failure to Meet a Friend on a Visit to See His Garden<br>
+                        👤 葉紹翁  | Ye Shaoweng (? - ?, Southern Song)
+                        <br>
+                        〰️〰️〰️〰️〰️ <br>
+                        応憐屐齒印蒼苔<br>小扣柴扉久不開<br>春色満園関不住<br>一枝紅杏出墻来<br>
+                        Perhaps he's loath to let my clogs the mossy carpet mar<br>I knock and wait but no one will the rustic gate unbar<br>The hues of spring suffuse the grounds, wherein they won't stay walled<br>For o'er the top a branch of blushing apricot has crawled<br>
+                    </span>
+                </p>
+
+        
+                    <!-- Repeat the same structure for other tooltips -->
+        
+                </div>
+        
+                <a href="#section1"> ↩︎ </a>
+            </div>
+      
+        
+        </div>
+        <!-- Add more sections as needed -->
+    </div>
+
+</body>
+
+</html>

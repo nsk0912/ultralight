@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Website</title>
+    <script src="script2.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap">
+    <style>
+
+    body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.container {
+    white-space: nowrap;
+    font-size: 20px;
+    overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, rgba(252,255,230,1) 0%, rgba(242,255,216,1) 45%, rgba(232,240,202,1) 100%);
+}
+.content {
+    position: relative;
+    z-index: 2;
+    color: grey;
+    padding: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.menu {
+    margin-top: 50px; /* Push the menu to the bottom */
+    display: flex;
+    gap: 20px;
+    z-index: 3;
+}
+
+.menu a {
+    color: grey;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto; /* Center the image within its container */
+    width: 80%; /* Set a default width for the image */
+    max-width: 800px; /* Set a maximum width for the image */
+}
+
+h1, p {
+    white-space: normal;
+}
+
+h2  {
+    white-space: normal;
+    font-style: italic;
+}
+
+.poem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; /* Center lines horizontally */
+    font-style: italic;
+    text-align: center; /* Center text within lines */
+}
+
+.poem p {
+    width: 100%; /* Full width for paragraphs */
+    margin-bottom: 10px; /* Add margin between the paragraphs */
+}
+
+@media only screen and (max-width: 768px) {
+    .poem {
+        align-items: center; /* Center items horizontally on smaller screens */
+    }
+}
+
+.poemdata {
+    display: flex;
+    align-items: self-end;
+    text-align: left;
+    justify-content: space-evenly;
+}
+
+hr {
+  width: 50%;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+    .container {
+        font-size: 16px;
+    }
+
+    .content {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .poem-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .poem-content p {
+        font-size: 14px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .back-to-top {
+        bottom: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .season-container {
+        margin-top: 10px;
+    }
+
+    season {
+        font-size: 40px;
+        margin: 0 5px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .hr-container {
+        display: none; /* Hide the hr initially */
+    }
+
+    .poem-container {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+    }
+
+    .hr-container {
+        display: block; /* Show the hr on smaller screens */
+    }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section" id="section1">
+            <div class="content">
+                <h1>Timeless Poetic Translation</h1>
+                <p>Songs of Wonder and Melancholy <br> Poems translated by my father in each season </p>
+                <div class="image-container">
+                    <img src="poem.png" class="img" alt="poetry logo">
+                </div>
+
+                <!-- Navigation menu -->
+                <div class="menu">
+                    <a href="#section2">◌ Access your season</a>
+                    <a href="#section3">◌ Index poetry machine</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="content">
+                <!-- Separate class for the poem part -->
+                <div class="poem-container" id="spring-poem">
+                    <div class="poem-content">
+                        <h1>✿</h1>
+                        <p>春暁 <br>Spring Dawn <br> 猛浩然<br>Meng Haoran</p>
+                        <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少</p>
+                        <a href="#first-section" class="back">↖︎</a>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="summer-poem">
+                    <div class="poem-content">
+                        <h1>☄</h1>
+                        <p>夏意<br>Summer Mood<br>蘇舜欽<br>Su Shunqin</p>
+                        <p>別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声</p>
+                        <a href="#first-section" class="back">↖︎</a>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="fall-poem">
+                    <div class="poem-content">
+                        <h1>❧</h1>
+                        <p>山下残夏偶作<br>Impromptu Poem on Late Summer Heat in the Hills<br>李山甫<br> Li Shanfu</p>
+                        <p>等閒三伏後<br>独臥此高丘<br>林風爽帶秋<br>声名何要出<br>吟詠亦堪休<br>自許紅塵外<br>雲溪好漱流</p>
+                        <a href="#first-section" class="back">↖︎</a>
+                    </div>
+                </div>
+
+                <div class="poem-container" id="winter-poem">
+                    <div class="poem-content">
+                        <h2>You're currently logged into the ❄️ season </h2>
+                        <h3>Here is a tailored timeless poem for you</h3>
+                        <div class="poemdata">
+                            <p class="tooltip">
+                                ✐ 哭姑<br>✍︎ 廖雲錦
+                                <span class="tooltiptext">Mourning my Mother-in-Law - Liao Yunjin (Qing, active 1821 - 1850)</span>
+                            </p>
+                            <hr>
+                            <div class="poem">
+                                <p class="tooltip">
+                                    禁寒惜暖十余春
+                                    <span class="tooltiptext">Forbid the cold and cherish the warmth for more than ten winters</span>
+                                </p>
+                                <p class="tooltip">
+                                    往事回頭倍愴神
+                                    <span class="tooltiptext">Looking back on the past, my heart is filled with sorrow</span>
+                                </p>
+                                <p class="tooltip">
+                                    幾度登楼親視膳
+                                    <span class="tooltiptext">How many times I climbed the stairs to personally inspect the meal</span>
+                                </p>
+                                <p class="tooltip">
+                                    掲開幃幕已無人
+                                    <span class="tooltiptext">Lifting the curtain, there is no one anymore</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section3">
+            <div class="content">
+                <h1>Index Poetry Machine</h1>
+                <p>This is the content of Section 3. It may also contain longer text that will wrap on smaller screens.</p>
+              <a href="#section1"> Back to Top</a>
+            </div>
+        </div>
+        <!-- Add more sections as needed -->
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap">
+    <script src="script.js" defer></script>
+
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: rgb(254, 255, 216);
+            background: pink
+        }
+
+        section {
+            width: 100vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            display: none; /* Hide all sections initially */
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-bottom: 0%;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        .season-container {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        season {
+            font-size: 60px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+
+        back {
+            font-size: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section:nth-child(even) {
+            background-color: transparent;
+        }
+
+        /* Add styling for the image container */
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Apply responsive styling directly to the image */
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section id="first-section">
+        <h1>Timeless Poetic Translation</h1>
+        <h3>Songs of Wonder and Melancholy</h3>
+
+        <!-- Add the image container -->
+        <div class="image-container">
+            <img src="poem.png" alt="poetry logo">
+        </div>
+
+        <!-- Spring Poem -->
+        <section id="spring-section">
+            <h1>✿</h1>
+            <p>春暁 <br>Spring Dawn <br> 猛浩然<br> Meng Haoran</p>
+            <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少</p>
+            <a href="#first-section" class="back">↖︎</a>
+        </section>
+
+        <!-- Summer Poem -->
+        <section id="summer-section">
+            <h1>☄</h1>
+            <p>夏意<br>Summer Mood<br> 蘇舜欽<br> Su Shunqin</p>
+            <p>別院深深夏箪清<br>石榴開遍透簾明<br>樹陰満地日当午<br>夢覚流鶯時一声</p>
+            <a href="#first-section" class="back">↖︎</a>
+        </section>
+
+        <!-- Fall Poem -->
+        <section id="fall-section">
+            <h1>❧</h1>
+            <p>山下残夏偶作<br>Impromptu Poem on Late Summer Heat in the Hills<br>李山甫<br> Li Shanfu</p>
+            <p>等閒三伏後<br>独臥此高丘<br>林風爽帶秋<br>声名何要出<br>吟詠亦堪休<br>自許紅塵外<br>雲溪好漱流</p>
+            <a href="#first-section" class="back">↖︎</a>
+        </section>
+
+        <!-- Winter Poem -->
+        <section id="winter-section">
+            <h2>You're currently logged into the ❆ season </h2>
+            <h2></h2>
+            <hr>
+            <div class="poem">
+                <p>春暁 <br>Spring Dawn <br> 猛浩然<br> Meng Haoran</p>
+                <p>春眠不覚暁<br>処処聞啼鳥<br>夜来風雨声<br>花落知多少</p>
+            </div>
+            <div class="poem">
+                <p>哭姑<br>Mourning my Mother-in-Law<br>廖雲錦<br>Liao Yunjin</p>
+                <p>禁寒惜暖十余春<br>往事回頭倍愴神<br>幾度登楼親視膳<br>掲開幃幕已無人</p>
+                <a href="#first-section" class="back">↖︎</a>
+            </div>
+        </section>
+
+        <div class="season-container">
+            <a href="#spring-section"><season>🀦</season></a>
+            <a href="#summer-section"><season>🀧</season></a>
+            <a href="#fall-section"><season>🀨</season></a>
+            <a href="#winter-section"><season>🀩</season></a>
+        </div>
+        <p>These are curated timeless Chinese poems by my father, which he sent me over via email time by time by time</p>
+        <p>All seasons</p>
+    </section>
+</body>
+
+</html>

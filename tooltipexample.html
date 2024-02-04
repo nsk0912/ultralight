@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Example</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <span class="tooltip" data-tooltip="Hello">Text 1</span>
+    <span class="tooltip" data-tooltip="Yay">Text 2</span>
+    <span class="tooltip" data-tooltip="Wow">Text 3</span>
+
+</body>
+</html>
