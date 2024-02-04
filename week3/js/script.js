@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const currentDateElement = document.getElementById('current');
-    const firstSection = document.getElementById('first-section');
-    const sections = {
-        spring: document.getElementById('spring-section'),
-        summer: document.getElementById('summer-section'),
-        fall: document.getElementById('fall-section'),
-        winter: document.getElementById('winter-section')
-    };
+    const firstSection = document.getElementById('section1');
+    const poemContainers = document.querySelectorAll('.poem-container');
 
     function getCurrentSeason() {
         const now = new Date();
@@ -23,18 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showRandomPoemForSeason(season) {
-        const currentSection = sections[season];
-        if (currentSection) {
-            const poems = currentSection.querySelectorAll('.poem');
-            poems.forEach(poem => {
-                poem.style.display = 'none';
-            });
+    function showSelectedPoem() {
+        poemContainers.forEach(poemContainer => {
+            poemContainer.style.display = 'none';
+        });
 
-            const randomIndex = Math.floor(Math.random() * poems.length);
-            poems[randomIndex].style.display = 'block';
-
-            currentSection.style.display = 'flex';
+        const currentSeason = getCurrentSeason();
+        const currentPoemContainer = document.getElementById(`${currentSeason}-poem`);
+        
+        if (currentPoemContainer) {
+            currentPoemContainer.style.display = 'flex';
         }
 
         // Always show the first section
@@ -42,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Get the current season and update the content
-    const currentSeason = getCurrentSeason();
-    showRandomPoemForSeason(currentSeason);
-    currentDateElement.textContent = currentSeason.toUpperCase();
+    showSelectedPoem();
+    currentDateElement.textContent = getCurrentSeason().toUpperCase();
 });
