@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Website</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row; /* Change to row to lay sections horizontally */
+            height: 100%; /* Full viewport height */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            scroll-snap-type: x mandatory; /* Ensure smooth snap scrolling */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+        }
+
+        .section {
+            flex: 0 0 100vw; /* Each section fills the full viewport width */
+            height: 100%; /* Full viewport height */
+            scroll-snap-align: start; /* Ensures sections snap to the start of the viewport */
+            padding: 20px; /* Add some padding for content */
+            box-sizing: border-box; /* Include padding in section's width */
+            background-color: #f0f0f0; /* Background color for sections (can be customized) */
+        }
+
+        /* Additional styling for demonstration purposes */
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Style for navigation items */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .topnav {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #777;
+        }
+
+        .topnav:hover {
+            background-color: #555;
+        }
+
+        /* Style for hidden section */
+        #section4 {
+            display: none;
+        }
+
+        /* Style for active section link */
+        .active {
+            background-color: #555 !important;
+        }
+
+        /* Make section 4 visible when targeted */
+        #section4:target {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a class="topnav" href="#section1">About</a></li>
+            <li><a class="topnav" href="#section2">Services</a></li>
+            <li><a class="topnav" href="#section3">Contact</a></li>
+            <li><a class="topnav" href="#section4">Toggle Section 4</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="section" id="section1">
+            <div class="section-content">
+                <h1>Section 1</h1>
+                <!-- Add content for Section 1 -->
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="section-content">
+                <h1>Section 2</h1>
+                <!-- Add content for Section 2 -->
+            </div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="section-content">
+                <h1>Section 3</h1>
+                <!-- Add content for Section 3 -->
+            </div>
+        </div>
+
+        <div class="section" id="section4">
+            <div class="section-content">
+                <h1>Section 4</h1>
+                <!-- Add content for Section 4 -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Scrolling Website</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            width: 300vw; /* Total width of all sections */
+            height: 100vh; /* Full viewport height */
+        }
+
+        .section {
+            flex: 0 0 100vw; /* Each section fills the full viewport width */
+            height: 100%; /* Full viewport height */
+            scroll-snap-align: start; /* Ensures sections snap to the start of the viewport */
+            overflow-y: auto; /* Enable vertical scrolling within each section if content exceeds viewport height */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            scroll-snap-type: x mandatory; /* Ensure horizontal snap scrolling */
+            padding: 20px; /* Add some padding for content */
+            box-sizing: border-box; /* Include padding in section's width */
+        }
+
+        /* Additional styling for demonstration purposes */
+        #section1 {
+            background-color: #f0f0f0;
+        }
+
+        #section2 {
+            background-color: #e0e0e0;
+        }
+
+        #section3 {
+            background-color: #d0d0d0;
+        }
+
+        /* Center content within sections */
+        .section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="section" id="section1">
+            <div class="section-content">
+                <h1>Section 1</h1>
+                <!-- Add content for Section 1 -->
+            </div>
+        </div>
+
+        <div class="section" id="section2">
+            <div class="section-content">
+                <h1>Section 2</h1>
+                <!-- Add content for Section 2 -->
+            </div>
+        </div>
+
+        <div class="section" id="section3">
+            <div class="section-content">
+                <h1>Section 3</h1>
+                <!-- Add content for Section 3 -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
